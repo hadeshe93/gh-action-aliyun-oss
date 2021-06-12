@@ -1,0 +1,28 @@
+name: 'ci'
+on:
+  push:
+    branches:
+      - main
+    # 也可以设置 tag 触发 ci
+    # tags:
+      # - 'v*'
+  pull_request:
+    branches:
+      - main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+      - name: Test Action
+        id: test_action
+        uses: ./
+        with:
+          who-to-greet: 'HADES HE'
+      - name: Get the output time
+        run: echo "The time was ${{ steps.test_action.outputs.time }}"
