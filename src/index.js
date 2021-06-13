@@ -2,18 +2,16 @@ const path = require('path');
 const glob = require('glob');
 const AliOss = require('ali-oss');
 const core = require('@actions/core');
-const config = require('../.env/config.js').oss;
-// const github = require('@actions/github');
 
 (async () => {
   try {
     // 准备变量
-    const accessKeyId = core.getInput('accessKeyId') || config.accessKeyId;
-    const accessKeySecret = core.getInput('accessKeySecret') || config.accessKeySecret;
-    const bucket = core.getInput('bucket') || config.bucket;
-    const region = core.getInput('region') || config.region;
-    const destPath = core.getInput('destPath') || config.destPath;
-    const localPath = core.getInput('localPath') || config.localPath;
+    const accessKeyId = core.getInput('access-key-id');
+    const accessKeySecret = core.getInput('access-key-secret');
+    const bucket = core.getInput('bucket');
+    const region = core.getInput('region');
+    const destPath = core.getInput('dest-path');
+    const localPath = core.getInput('local-path');
 
     // 实例化客户端
     const client = AliOss({

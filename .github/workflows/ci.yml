@@ -19,10 +19,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '12.x'
-      - name: Test Action
-        id: test_action
+      - name: Deploy static asstes to aliyun oss
+        id: deploy
         uses: ./
         with:
-          who-to-greet: 'HADES HE'
-      - name: Get the output time
-        run: echo "The time was ${{ steps.test_action.outputs.time }}"
+          access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+          bucket: ${{ secrets.BUCKET }}
+          region: ${{ secrets.REGION }}
+          dest-path: ${{ secrets.DEST_PATH }}
+          local-path: './demo'

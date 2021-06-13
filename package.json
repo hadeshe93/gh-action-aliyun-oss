@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "ncc build src/index.js --license licenses.txt",
+    "build": "rimraf dist/ && ncc build src/index.js --license licenses.txt",
     "lint": "eslint --ext .js",
     "lint:fix": "eslint --ext .js --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -33,6 +33,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.3.1"
+    "prettier": "^2.3.1",
+    "rimraf": "^3.0.2"
   }
 }

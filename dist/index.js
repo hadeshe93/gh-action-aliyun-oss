@@ -1,25 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 9270:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-const path = __nccwpck_require__(5622);
-
-module.exports = {
-  oss: {
-    accessKeyId: 'LTAI4G9gMa99wHHwR9X3PcHp',
-    accessKeySecret: 'qQ6bJzzj97MmxWHO0FWeoU3DpWqYAd',
-    bucket: 'hadeshe-test',
-    region: 'oss-cn-shenzhen',
-    destPath: '/test/gh-action-aliyun-oss/',
-    localPath: __nccwpck_require__.ab + "demo",
-  },
-};
-
-
-/***/ }),
-
 /***/ 7351:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -72543,18 +72524,16 @@ const path = __nccwpck_require__(5622);
 const glob = __nccwpck_require__(1957);
 const AliOss = __nccwpck_require__(2399);
 const core = __nccwpck_require__(2186);
-const config = __nccwpck_require__(9270).oss;
-// const github = require('@actions/github');
 
 (async () => {
   try {
     // 准备变量
-    const accessKeyId = core.getInput('accessKeyId') || config.accessKeyId;
-    const accessKeySecret = core.getInput('accessKeySecret') || config.accessKeySecret;
-    const bucket = core.getInput('bucket') || config.bucket;
-    const region = core.getInput('region') || config.region;
-    const destPath = core.getInput('destPath') || config.destPath;
-    const localPath = core.getInput('localPath') || config.localPath;
+    const accessKeyId = core.getInput('access-key-id');
+    const accessKeySecret = core.getInput('access-key-secret');
+    const bucket = core.getInput('bucket');
+    const region = core.getInput('region');
+    const destPath = core.getInput('dest-path');
+    const localPath = core.getInput('local-path');
 
     // 实例化客户端
     const client = AliOss({
