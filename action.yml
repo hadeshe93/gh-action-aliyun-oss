@@ -1,13 +1,27 @@
 name: 'GH-ACTION-ALIYUN-OSS'
-description: 'Greet someone and record the time'
+description: 'Greet someone and record The time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  access-key-id:
+    description: 'The accessKeyId for accessing aliyun oss'
     required: true
-    default: 'World'
+  access-key-secret:
+    description: 'The accessKeySecret for accessing aliyun oss'
+    required: true
+  bucket:
+    description: 'The bucket name of aliyun oss'
+    required: true
+  region:
+    description: 'The region name of aliyun oss'
+    required: true
+  dest-path:
+    description: 'The remote destination in aliyun oss for storage'
+    required: true
+  local-path:
+    description: 'The local path that you wanna upload to aliyun oss'
+    required: true
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  uploaded-files:
+    description: 'The uploaded files'
 runs:
   using: 'node12'
   main: 'dist/index.js'

@@ -45,6 +45,9 @@ const core = require('@actions/core');
     await Promise.all(promiseList);
     core.info('All files are uploaded successfully.');
     core.info('\n');
+
+    // 设置输出
+    core.setOutput('uploaded-files', files);
   } catch (error) {
     core.setFailed(error.message);
   }
