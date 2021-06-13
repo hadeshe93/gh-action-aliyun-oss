@@ -4,7 +4,7 @@ module.exports = {
     return [
       `eslint --fix ${filenamesStr}`,
       'npm run build',
-      `git add ${filenamesStr}`
+      `git add --all`
     ];
   },
 };
