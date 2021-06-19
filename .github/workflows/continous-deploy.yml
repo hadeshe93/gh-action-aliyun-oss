@@ -1,0 +1,28 @@
+name: 'smoke-test'
+on:
+  push:
+    branches:
+      - main
+    # 也可以设置 tag 触发 ci
+    # tags:
+      # - 'v*'
+  pull_request:
+    branches:
+      - main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install
+        run: yarn install
+      - name: Release Version
+        run: yarn release
+      - name: Publish version
+        run: git push origin --follow-tags
