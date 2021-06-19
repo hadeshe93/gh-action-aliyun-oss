@@ -1,11 +1,12 @@
 name: 'smoke-test'
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
     # 也可以设置 tag 触发 ci
     # tags:
       # - 'v*'
+  # 创建 pr 时运行
   pull_request:
     branches:
       - main
@@ -19,8 +20,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '12.x'
-      - name: Deploy static asstes to aliyun oss
-        id: deploy
+      - name: Run smoke test
         uses: ./
         with:
           access-key-id: ${{ secrets.ACCESS_KEY_ID }}
