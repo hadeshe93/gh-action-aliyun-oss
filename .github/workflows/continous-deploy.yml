@@ -6,9 +6,10 @@ on:
     # 也可以设置 tag 触发 ci
     # tags:
       # - 'v*'
-  pull_request:
-    branches:
-      - main
+  # 创建 pr 后会运行
+  # pull_request:
+  #   branches:
+  #     - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
