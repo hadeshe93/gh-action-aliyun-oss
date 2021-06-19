@@ -1,4 +1,4 @@
-name: 'smoke-test'
+name: 'continous-deploy'
 on:
   push:
     branches:

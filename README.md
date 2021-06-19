@@ -1,4 +1,4 @@
-![continous deploy action badge](https://github.com/hadeshe/gh-action-aliyun-oss/actions/workflows/continous-deploy.yml/badge.svg)
+![continous deploy action badge](https://github.com/hadeshe93/gh-action-aliyun-oss/actions/workflows/continous-deploy.yml/badge.svg)
 
 ## 使用
 
