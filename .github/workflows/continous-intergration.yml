@@ -1,4 +1,4 @@
-name: 'smoke-test'
+name: 'continous-intergration'
 on:
   # push:
   #   branches:
