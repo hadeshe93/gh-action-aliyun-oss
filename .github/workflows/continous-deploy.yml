@@ -10,7 +10,7 @@ on:
     branches:
       - main
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,6 +22,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install
         run: yarn install
+      - name: Configure git info
+        run: |
+          git config --global user.email "$GITHUB_ACTOR@gmail.com"
+          git config --global user.name "$GITHUB_ACTOR"
       - name: Release Version
         run: yarn release
       - name: Publish version
