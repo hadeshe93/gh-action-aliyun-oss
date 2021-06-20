@@ -1,5 +1,5 @@
 name: 'GH-ACTION-ALIYUN-OSS'
-description: 'Greet someone and record The time'
+description: 'A github action for uploading assets to aliyun oss via convinient configuration.'
 inputs:
   access-key-id:
     description: 'The accessKeyId for accessing aliyun oss'
